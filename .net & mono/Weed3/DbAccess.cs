@@ -31,7 +31,7 @@ namespace Noear.Weed {
         }
 
         protected void logCommandBuilt(Command cmd) {
-            onCommandExpr?.Invoke(cmd);
+            onCommandExpr.Invoke(cmd);
         }
 
         public DbAccess(DbContext context) {

@@ -407,7 +407,7 @@ namespace Noear.Weed {
         public bool exists(Action<IQuery> expre)  {
             IQuery q = limit(1).select("1");
 
-            expre?.Invoke(q);
+            expre.Invoke(q);
 
             return q.getValue() != null;
         }
