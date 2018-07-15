@@ -2,6 +2,7 @@
 using MySql.Data.MySqlClient;
 using System.Configuration;
 using System.Data.Common;
+using System.Data.SQLite;
 
 namespace Weed3Demo {
     public class DbConfig {
@@ -15,7 +16,7 @@ namespace Weed3Demo {
         public static DbContext pc_trace = new DbContext("pc_trace", "test");
         public static DbContext pc_pool  = new DbContext("pc_pool", "test");
         public static DbContext pc_bcf   = new DbContext("pc_bcf", "test");
-
+        public static DbContext pc_sqlite = new DbContext("main", "Data Source=" + @"D:\MyCodes\Weed3\.net & mono\Weed3Demo\static.db", new SQLiteFactory());
         
         //public static DbContext xxxx  = new DbContext("pc_user","jdbc:mysql://db.zheq.org:3306/pc_user","root","1234",null);
 

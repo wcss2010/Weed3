@@ -115,7 +115,16 @@ namespace Noear.Weed {
             });
 
             sb.DeleteCharAt(sb.Length - 1);
-            sb.Append("); SELECT @@IDENTITY;");
+
+            //检查当前数据库是否支持使用Select @@Identity
+            if (_context.IsSupportInsertAfterSelectIdentity)
+            {
+                sb.Append("); SELECT @@IDENTITY;");
+            }
+            else
+            {
+                sb.Append("); ");
+            }
 
             _builder.append(sb.ToString(), args.ToArray());
 
