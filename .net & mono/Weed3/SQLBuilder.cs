@@ -16,7 +16,7 @@ namespace Noear.Weed {
         }
 
         public void clear() {
-            builder.Clear();
+            builder = new StringBuilder();
             paramS.Clear();
         }
 
