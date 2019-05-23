@@ -25,6 +25,16 @@ namespace Noear.Weed
             set { _isSupportInsertAfterSelectIdentity = value; }
         }
 
+        private bool _isSupportGCAfterDispose = false;
+        /// <summary>
+        /// 是否支持在Dispose后运行GC(主要针对sqlite数据库Dispose后仍然无法释放文件的BUG)
+        /// </summary>
+        public bool IsSupportGCAfterDispose
+        {
+            get { return _isSupportGCAfterDispose; }
+            set { _isSupportGCAfterDispose = value; }
+        }
+
         private List<DbConnection> _connectionList = new List<DbConnection>();
 
         static DbProviderFactory provider(string providerString)
@@ -142,6 +152,7 @@ namespace Noear.Weed
         /* 结束所有连接 */
         public void Dispose()
         {
+            //尝试释放所有连接
             if (_connectionList != null)
             {
                 foreach (DbConnection conn in _connectionList)
@@ -158,6 +169,23 @@ namespace Noear.Weed
                     }
                     catch (Exception ex) { }
                 }
+            }
+
+            //尝试GC
+            if (IsSupportGCAfterDispose)
+            {
+                //**链接close（）和dispose（）之后任然不能释放与db文件的连接,原因是sqlite在执行SQLiteConnectionHandle.Dispose()操作时候，其实并没有真正的释放连接，只有显式调用 CLR垃圾回收之后才能真正释放连接
+                try
+                {
+                    GC.Collect();
+                }
+                catch (Exception ex) { }
+
+                try
+                {
+                    GC.WaitForPendingFinalizers();
+                }
+                catch (Exception ex) { }
             }
         }
     }
