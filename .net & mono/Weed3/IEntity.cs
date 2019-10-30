@@ -14,7 +14,7 @@ namespace Noear.Weed
         /// </summary>
         /// <param name="query"></param>
         /// <returns></returns>
-        public abstract Noear.Weed.DbTableQuery set(Noear.Weed.DbTableQuery query);
+        public abstract Noear.Weed.DbTableQuery copyTo(Noear.Weed.DbTableQuery query);
 
         /// <summary>
         /// 数据绑定
