@@ -12,9 +12,9 @@ namespace Noear.Weed
         /// <summary>
         /// 将数据复制到
         /// </summary>
-        /// <param name="query"></param>
+        /// <param name="dest"></param>
         /// <returns></returns>
-        public abstract Noear.Weed.DbTableQuery copyTo(Noear.Weed.DbTableQuery query);
+        public abstract Noear.Weed.DbTableQuery copyTo(Noear.Weed.DbTableQuery dest);
 
         /// <summary>
         /// 数据绑定
