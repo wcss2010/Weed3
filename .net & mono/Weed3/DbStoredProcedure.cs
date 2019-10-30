@@ -53,7 +53,7 @@ namespace Noear.Weed {
             //1.替换schema
             int idx = 0;
             while (true) {
-                idx = sb.IndexOf('$', idx);
+                idx = sb.IndexOf(DataFlagConfig.dbNameFlag[0], idx);
                 if (idx > 0) {
                     sb.Replace(idx, idx + 1, context.getSchema());
                     idx++;

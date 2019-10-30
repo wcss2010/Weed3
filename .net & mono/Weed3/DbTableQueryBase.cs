@@ -100,7 +100,7 @@ namespace Noear.Weed {
 
                 if (value is String) {
                     String val2 = (String)value;
-                    if (val2.Length>0 && val2[0] == '$') { //说明是SQL函数
+                    if (val2.Length>0 && val2[0] == DataFlagConfig.sqlFunctionFlag[0]) { //说明是SQL函数
                         sb.Append(val2.Substring(1)).Append(",");
                     }
                     else {
@@ -188,7 +188,8 @@ namespace Noear.Weed {
 
                     if (val is String) {
                         String val2 = (String)val;
-                        if (val2.IndexOf('$') == 0) { //说明是SQL函数
+                        if (val2.IndexOf(DataFlagConfig.sqlFunctionFlag[0]) == 0)
+                        { //说明是SQL函数
                             sb.Append(val2.Substring(1)).Append(",");
                         } else {
                             sb.Append("?,");
@@ -242,7 +243,8 @@ namespace Noear.Weed {
 
                 if (value is String) {
                     String val2 = (String)value;
-                    if (val2.Length >0 && val2[0] == '$') {
+                    if (val2.Length > 0 && val2[0] == DataFlagConfig.sqlFunctionFlag[0])
+                    {
                         sb.Append(_context.field(key)).Append("=").Append(val2.Substring(1)).Append(",");
                     }
                     else {
@@ -320,7 +322,8 @@ namespace Noear.Weed {
 
                     if (val is String) {
                         String val2 = (String)val;
-                        if (val2.IndexOf('$') == 0) { //说明是SQL函数
+                        if (val2.IndexOf(DataFlagConfig.sqlFunctionFlag[0]) == 0)
+                        { //说明是SQL函数
                             sb.Append(val2.Substring(1)).Append(",");
                         } else {
                             sb.Append("?,");

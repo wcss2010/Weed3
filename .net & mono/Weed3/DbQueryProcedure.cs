@@ -106,7 +106,7 @@ namespace Noear.Weed {
             }
 
             if (context.hasSchema()) {
-                sqlTxt.Replace("$", context.getSchema());
+                sqlTxt.Replace(DataFlagConfig.dbNameFlag[0].ToString(), context.getSchema());
             }
 
             cmd.paramS = this.paramS;
