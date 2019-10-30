@@ -82,14 +82,14 @@ namespace Noear.Weed {
                             StringBuilder sb = new StringBuilder();
                             foreach (Object p2 in (ICollection)p1) {
                                 paramS.Add(p2);
-                                sb.Append("?").Append(",");
+                                sb.Append(DataFlagConfig.paramReplaceFlag).Append(",");
                             }
 
                             int len = sb.Length;
                             if (len > 0)
                                 sb.Remove(len - 1, 1);
 
-                            builder.ReplaceFirst("?...", sb.ToString());
+                            builder.ReplaceFirst(DataFlagConfig.paramTeamFlag, sb.ToString());
                         }
                         else if (p1 is DbQuery) {
 
@@ -99,10 +99,10 @@ namespace Noear.Weed {
                                 paramS.Add(p2.getValue());
                             }
 
-                            if (s1.paramS.Count > 0) 
-                                builder.ReplaceFirst("?...", s1.commandText);
+                            if (s1.paramS.Count > 0)
+                                builder.ReplaceFirst(DataFlagConfig.paramTeamFlag, s1.commandText);
                             else
-                                builder.ReplaceFirst("?...", s1.commandText);
+                                builder.ReplaceFirst(DataFlagConfig.paramTeamFlag, s1.commandText);
                         }
                         else {
                             paramS.Add(p1);

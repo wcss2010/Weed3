@@ -68,7 +68,7 @@ namespace Noear.Weed {
                 
 
                 while (true) {
-                    atIdx = sb.IndexOf('?', atIdx);
+                    atIdx = sb.IndexOf(DataFlagConfig.paramReplaceFlag[0], atIdx);
                     if (atIdx > 0) {
                         Variate temp = doGet(paIdx);
                         if (temp == null) {
@@ -76,7 +76,7 @@ namespace Noear.Weed {
                         }
 
                         temp.setName("p" + paIdx);
-                        sb.Replace("?", "@" + temp.getName(), atIdx, 1);
+                        sb.Replace(DataFlagConfig.paramReplaceFlag, DataFlagConfig.parameterHeadFlag + temp.getName(), atIdx, 1);
 
                         //atIdx+= strVal.Length;//增加替换后的长度
                         atIdx += temp.getName().Length +1;

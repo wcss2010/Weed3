@@ -104,12 +104,12 @@ namespace Noear.Weed {
                         sb.Append(val2.Substring(1)).Append(",");
                     }
                     else {
-                        sb.Append("?,");
+                        sb.Append(DataFlagConfig.paramReplaceFlag).Append(",");
                         args.Add(value);
                     }
                 }
                 else {
-                    sb.Append("?,");
+                    sb.Append(DataFlagConfig.paramReplaceFlag).Append(",");
                     args.Add(value);
                 }
             });
@@ -192,11 +192,11 @@ namespace Noear.Weed {
                         { //说明是SQL函数
                             sb.Append(val2.Substring(1)).Append(",");
                         } else {
-                            sb.Append("?,");
+                            sb.Append(DataFlagConfig.paramReplaceFlag).Append(",");
                             args.Add(val);
                         }
                     } else {
-                        sb.Append("?,");
+                        sb.Append(DataFlagConfig.paramReplaceFlag).Append(",");
                         args.Add(val);
                     }
                 }
@@ -248,12 +248,12 @@ namespace Noear.Weed {
                         sb.Append(_context.field(key)).Append("=").Append(val2.Substring(1)).Append(",");
                     }
                     else {
-                        sb.Append(_context.field(key)).Append("=?,");
+                        sb.Append(_context.field(key)).Append("=").Append(DataFlagConfig.paramReplaceFlag).Append(",");
                         args.Add(value);
                     }
                 }
                 else {
-                    sb.Append(_context.field(key)).Append("=?,");
+                    sb.Append(_context.field(key)).Append("=").Append(DataFlagConfig.paramReplaceFlag).Append(",");
                     args.Add(value);
                 }
             });
@@ -326,11 +326,11 @@ namespace Noear.Weed {
                         { //说明是SQL函数
                             sb.Append(val2.Substring(1)).Append(",");
                         } else {
-                            sb.Append("?,");
+                            sb.Append(DataFlagConfig.paramReplaceFlag).Append(",");
                             args.Add(val);
                         }
                     } else {
-                        sb.Append("?,");
+                        sb.Append(DataFlagConfig.paramReplaceFlag).Append(",");
                         args.Add(val);
                     }
                 }

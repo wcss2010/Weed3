@@ -101,7 +101,7 @@ namespace Noear.Weed {
                 }
 
                 foreach (String key in _paramS2.Keys) {
-                    sqlTxt = sqlTxt.Replace(key, "?");
+                    sqlTxt = sqlTxt.Replace(key, DataFlagConfig.paramReplaceFlag);
                 }
             }
 
