@@ -10,7 +10,7 @@ namespace Weed3Demo
     {
         public static void Main(string[] args)
         {
-            DbConfig.pc_sqlite.IsSupportInsertAfterSelectIdentity = false;
+            DbConfig.pc_sqlite.IsSupportSelectIdentityAfterInsert = false;
             DbConfig.pc_sqlite.table("Robot_Actions").set("Id", 25).set("Code", "A").set("Name", "B").insert();
         }
     }

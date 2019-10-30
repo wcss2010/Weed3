@@ -117,7 +117,7 @@ namespace Noear.Weed {
             sb.DeleteCharAt(sb.Length - 1);
 
             //检查当前数据库是否支持使用Select @@Identity
-            if (_context.IsSupportInsertAfterSelectIdentity)
+            if (_context.IsSupportSelectIdentityAfterInsert)
             {
                 sb.Append("); SELECT @@IDENTITY;");
             }

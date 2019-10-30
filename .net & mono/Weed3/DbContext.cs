@@ -15,14 +15,14 @@ namespace Noear.Weed
         private String _url;
         private String _schemaName;
         private DbProviderFactory _provider;
-        private bool _isSupportInsertAfterSelectIdentity = true;
+        private bool _isSupportSelectIdentityAfterInsert = true;
         /// <summary>
         /// 是否支持Insert后使用SELECT @@IDENTITY
         /// </summary>
-        public bool IsSupportInsertAfterSelectIdentity
+        public bool IsSupportSelectIdentityAfterInsert
         {
-            get { return _isSupportInsertAfterSelectIdentity; }
-            set { _isSupportInsertAfterSelectIdentity = value; }
+            get { return _isSupportSelectIdentityAfterInsert; }
+            set { _isSupportSelectIdentityAfterInsert = value; }
         }
 
         private bool _isSupportGCAfterDispose = false;
