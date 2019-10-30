@@ -39,7 +39,7 @@ namespace Noear.Weed {
             if (table.IndexOf('.') > 0)
                 _table = table;
             else
-                _table = "$." + table;
+                _table = DataFlagConfig.dbNameFlag + table;
 
             return (T)this;
         }
