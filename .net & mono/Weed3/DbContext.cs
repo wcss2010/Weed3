@@ -189,4 +189,31 @@ namespace Noear.Weed
             }
         }
     }
+
+    /// <summary>
+    /// 占位符常量配置
+    /// </summary>
+    public class DataFlagConfig
+    {
+        /// <summary>
+        /// 数据库名占位数
+        /// </summary>
+        public static string dbNameFlag = "$.";
+        /// <summary>
+        /// SQL函数占位符
+        /// </summary>
+        public static string sqlFunctionFlag = "$fun";
+        /// <summary>
+        /// 参数替换占位符
+        /// </summary>
+        public static string paramReplaceFlag = "?";
+        /// <summary>
+        /// 数组型参数占位符
+        /// </summary>
+        public static string paramTeamFlag = "?...";
+        /// <summary>
+        /// 参数名头部符号(比如insert中的@ID,@Name)
+        /// </summary>
+        public static string parameterHeadFlag = "@";
+    }
 }
