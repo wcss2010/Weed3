@@ -4,6 +4,15 @@
 支持什么数据库？？？<br/>
 与具体数据库无关（或许支持所有数据库）<br/>
 
+*****************************************************
+这是一个Weed3的个人修改版，只针对".net & mono"，同时我弄了一个代码生成器基于我修改的".net & mono",主要是修复了针对sqlite数据库和oracle的支持问题，在DbContext中增加了二个属性IsSupportSelectIdentityAfterInsert(因为原来代码中insert之后会执行select @@Identity,但是这个sqlite不支持)和IsSupportGcAfterDispose(因为原来代码中没有Dispose这个函数，也没有执行GC所以会导致sqlite库没办法释放)，还有一个Dispose函数,增加了一个DataFlagConfig用于对代码中的一些占位符进行替换(用Oracle时发现某些符号有错误所以加的这个),增加了一个IEntity用于实现实体类的功能(主要是赋值部分)
+
+代码生成器的地址在:https://github.com/wcss2010/SuperCodeFactory.git
+
+个人使用的库，原本没打算放出，不喜误喷！！！！
+
+*****************************************************
+
 理念：<br/>
 高性能、跨平台、轻量、有个性<br/>
 
