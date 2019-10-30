@@ -155,7 +155,7 @@ namespace Noear.Weed.Cache {
 
 
         private String KEY(String tag) {
-            return ("@" + tag).ToUpper();
+            return (DataFlagConfig.parameterHeadFlag + tag).ToUpper();
         }
         
     }

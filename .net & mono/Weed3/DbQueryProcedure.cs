@@ -88,7 +88,7 @@ namespace Noear.Weed {
             String sqlTxt = this.commandText;
 
             {
-                var mlist = Regex.Matches(sqlTxt, "@\\w+");
+                var mlist = Regex.Matches(sqlTxt, DataFlagConfig.parameterHeadFlag + "\\w+");
                 foreach (Match m in mlist) {
                     String key = m.Groups[0].Value;
                     if (WeedConfig.isDebug) {
