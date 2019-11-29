@@ -27,7 +27,7 @@ namespace Weed3Demo
             DbConfig.pc_sqlite.IsSupportGCAfterDispose = true;
             try
             {
-                SQLBuilder.SqlFilterObject = new SqlFilterExt();
+                SQLBuilder.SqlFilterAdapter = new SqlFilterExt();
                 DbConfig.pc_sqlite.table("Version").delete();
 
                 Version v1 = new Version();

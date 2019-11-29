@@ -8,7 +8,7 @@ namespace Noear.Weed {
         /// <summary>
         /// SQL过滤器
         /// </summary>
-        public static ISqlFilter SqlFilterObject = null;
+        public static ISqlFilter SqlFilterAdapter = null;
 
         private StringBuilder builder = new StringBuilder();
         internal List<Object> paramS = new List<Object>();
@@ -68,9 +68,9 @@ namespace Noear.Weed {
         }
 
         public override string ToString() {
-            if (SqlFilterObject != null)
+            if (SqlFilterAdapter != null)
             {
-                return SqlFilterObject.filter(builder.ToString());
+                return SqlFilterAdapter.filter(builder.ToString());
             }
             else
             {
