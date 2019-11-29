@@ -11,12 +11,23 @@ namespace Weed3Demo
 {
     public class Program
     {
+        class SqlFilterExt : Noear.Weed.ISqlFilter
+        {
+            public string filter(string sql)
+            {
+                System.Console.WriteLine("SQL:" + sql);
+
+                return sql + "+;+;";
+            }
+        }
+
         public static void Main(string[] args)
         {
             DbConfig.pc_sqlite.IsSupportSelectIdentityAfterInsert = false;
             DbConfig.pc_sqlite.IsSupportGCAfterDispose = true;
             try
             {
+                SQLBuilder.SqlFilterObject = new SqlFilterExt();
                 DbConfig.pc_sqlite.table("Version").delete();
 
                 Version v1 = new Version();
