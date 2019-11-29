@@ -5,6 +5,11 @@ using System.Text;
 
 namespace Noear.Weed {
     public class SQLBuilder {
+        /// <summary>
+        /// SQL过滤器
+        /// </summary>
+        public static ISqlFilter SqlFilters = null;
+
         private StringBuilder builder = new StringBuilder();
         internal List<Object> paramS = new List<Object>();
 
@@ -63,7 +68,14 @@ namespace Noear.Weed {
         }
 
         public override string ToString() {
-            return builder.ToString();
+            if (SqlFilters != null)
+            {
+                return SqlFilters.filter(builder.ToString());
+            }
+            else
+            {
+                return builder.ToString();
+            }
         }
        
         //部分构建
@@ -116,5 +128,13 @@ namespace Noear.Weed {
                 }
             }
         }
+    }
+
+    /// <summary>
+    /// SQL过滤
+    /// </summary>
+    public interface ISqlFilter
+    {
+        string filter(string sql);
     }
 }
